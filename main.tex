@@ -1,14 +1,15 @@
-\documentclass[12pt,a4paper]{report}
+\documentclass[12pt,a4paper]{article}
 
 % Paquetes esenciales
 \usepackage[utf8]{inputenc}
-\usepackage[spanish]{babel} % Idioma español para "Índice", "Capítulo", etc.
+\usepackage[spanish]{babel} % Idioma español
 \usepackage{geometry}
 \geometry{a4paper, margin=2.5cm}
 \usepackage{fancyhdr} % Para personalizar encabezados y pies de página
-\usepackage{hyperref} % Para que el índice tenga enlaces clickeables
+\usepackage{hyperref} % Para enlaces clickeables
 \usepackage{xcolor} % Para darle color a los enlaces
-\usepackage{titlesec} % Para dar formato a los títulos de capítulos
+\usepackage{titlesec} % Para dar formato a los títulos
+\usepackage{enumitem} % Para listas personalizadas
 
 % Configuración de colores para los enlaces
 \hypersetup{
@@ -22,14 +23,14 @@
 % Configuración de Encabezados
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\textit{\leftmark}} % Muestra el nombre del capítulo a la izquierda
-\fancyhead[R]{\thepage} % Muestra el número de página a la derecha
+\fancyhead[L]{\textit{Manual de Supervivencia FIM}} % Texto fijo a la izquierda
+\fancyhead[R]{\thepage} % Número de página a la derecha
 \renewcommand{\headrulewidth}{0.4pt} % Línea divisoria en el encabezado
 
-% Formato de los capítulos para que no ocupen media página en blanco
-\titleformat{\chapter}[display]
-  {\normalfont\bfseries\Huge}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
-\titlespacing*{\chapter}{0pt}{-20pt}{20pt}
+% Formato de las secciones
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection.}{1em}{}
+\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{2.3ex plus .2ex}
 
 \begin{document}
 
@@ -43,7 +44,7 @@
     
     {\Large Guía Definitiva de Trámites, Pagos y Vida Universitaria}\\[2cm]
     
-    {\Large \textbf{Autor:} Gustavo Morales}\\[1cm] % Personalizado con tu nombre
+    {\Large \textbf{Autor:} Gustavo Morales}\\[1cm] 
     
     {\large Facultad de Ingeniería Mecánica}\\[0.5cm]
     {\large Universidad Nacional de Ingeniería}\\[3cm]
@@ -54,7 +55,7 @@
     \vspace{0.5cm}
     \textbf{¿Qué encontrarás en este documento?}\\[0.5cm]
     \begin{flushleft}
-    Este manual ha sido recopilado para resolver las dudas más frecuentes de los nuevos ingresantes de la FIM. Aquí detallamos paso a paso cómo lidiar con la saturación de la plataforma INTRALU, los pagos de OCEF, la toma de fotografías de DIRCE, el examen médico, y te damos los consejos esenciales para sobrevivir a la carga académica y entender la cultura de la facultad sin perder la paciencia.
+    Este manual ha sido recopilado para resolver las dudas más frecuentes de los nuevos ingresantes de la FIM. Aquí detallamos los procesos de INTRALU, el cronograma del examen médico, el sistema de evaluación (parciales, finales, sustis), recomendaciones de estudio y los consejos esenciales para sobrevivir a la carga académica y entender la cultura de la facultad sin perder la paciencia.
     \end{flushleft}
     \vspace{0.5cm}
     \hrule
@@ -64,69 +65,84 @@
 \tableofcontents
 \newpage
 
-% ---------------- CAPÍTULO 1 ----------------
-\chapter{Trámites y Pagos (INTRALU)}
+% ---------------- SECCIÓN 1 ----------------
+\section{Trámites, Pagos e INTRALU}
 
-\section{Acceso a la Plataforma}
-El sistema suele saturarse debido a la gran cantidad de ingresantes. Si tienes problemas para acceder a tu INTRALU, asegúrate de iniciar sesión mediante la opción de Google utilizando tu correo institucional (@uni.pe).
+\subsection{Credenciales y Matrícula}
+Les llegará un correo con sus contraseñas provisionales para acceder a la plataforma de la UNI. El acceso debe realizarse iniciando sesión con Google usando dicho correo institucional (@uni.pe). \textbf{Dato vital:} La matrícula del primer ciclo es AUTOMÁTICA. No tienen que preocuparse por armar horarios; solo deben enfocarse en sus pagos y trámites iniciales.
 
-\section{Periodos Académicos y Generación de Órdenes}
-Una de las mayores confusiones ocurre con los periodos de pago. Aunque tu ingreso es para el ciclo \textbf{2026-1}, el periodo administrativo actual en el sistema sigue siendo \textbf{2025-3}. 
-Si intentas generar el pago en 2026-1 y no te lo permite, o si te sale "orden no registrada", debes generar tus pagos seleccionándolos manualmente de la lista de todos los trámites.
+\subsection{Periodos Académicos y Generación de Órdenes}
+Deben generar los pagos para el examen médico, carné universitario, carné de biblioteca y autoseguro. Si al intentar generar el pago en el periodo \textbf{2026-1} no se los permite o les sale "orden no registrada", generen los pagos seleccionándolos manualmente de la lista de todos los trámites (actualmente el sistema administrativo sigue en 2025-3).
+\textit{Nota:} El trámite del carné de biblioteca y universitario pueden esperar a que inicie oficialmente el ciclo. Prioricen el examen médico, el autoseguro y la evaluación socioeconómica.
 
-\section{¿Qué pagar primero?}
-No es necesario pagar todo de golpe. Prioriza únicamente:
+\subsection{Demora en las Fotografías (DIRCE)}
+Es completamente normal que su fotografía no aparezca de inmediato en INTRALU. DIRCE procesa esta información manualmente y puede tardar varios días. La foto es requisito para descargar la Constancia de Ingreso, así que tengan paciencia.
+
+% ---------------- SECCIÓN 2 ----------------
+\section{Examen Médico}
+
+El examen médico es de carácter obligatorio y se realizará del \textbf{02 al 06 de marzo}.
 \begin{itemize}
-    \item \textbf{Examen Médico:} Tiene un costo aproximado de S/ 82.00.
-    \item \textbf{Autoseguro}
-\end{itemize}
-Los pagos para el carné universitario y el carné de biblioteca pueden esperar a que inicie oficialmente el ciclo regular. Una vez generada la orden en INTRALU, puedes pagar tranquilamente a través de la aplicación del BCP o Yape.
-
-% ---------------- CAPÍTULO 2 ----------------
-\chapter{Fotografías DIRCE y Constancias}
-
-\section{Demora en la actualización de fotos}
-Luego de entregar tus documentos presencialmente, te tomarán una fotografía. Es completamente normal que esta imagen no aparezca de inmediato en tu INTRALU; al haber cientos de ingresantes, DIRCE procesa esta información manualmente y puede tardar varios días, o incluso hasta el inicio del ciclo.
-
-\section{Constancia de Ingreso}
-La foto es un requisito indispensable para que el sistema te permita descargar la constancia de ingreso final. Debes tener paciencia y revisar el portal periódicamente.
-
-% ---------------- CAPÍTULO 3 ----------------
-\chapter{Examen Médico}
-
-El examen médico es un paso obligatorio. Para poder ser atendido ese día, es indispensable que presentes tu voucher o comprobante de pago (puedes llevarlo impreso o mostrarlo desde tu celular). 
-Si no has pagado, no podrás pasar el examen. Ve bien aseado, de preferencia temprano para evitar largas colas, y lleva bloqueador solar y agua. Si usas brackets, no te preocupes, el personal simplemente lo anotará en tu registro.
-
-% ---------------- CAPÍTULO 4 ----------------
-\chapter{Ciclo Introductorio y Ciclo Regular}
-
-\section{Clases Introductorias}
-Están programadas para iniciar el lunes 2 de marzo. Si bien no son obligatorias y sus evaluaciones no afectan tu promedio, son altamente recomendables, especialmente para cursos filtro como Física I. Te enseñarán los mismos ingenieros que dictan en el ciclo regular.
-
-\section{Inicio del Ciclo Regular}
-El ciclo 2026-1 iniciará oficialmente el 23 de marzo y terminará aproximadamente la última semana de julio. No te preocupes por armar tu horario ahora; la primera matrícula para los cachimbos es completamente automática.
-
-% ---------------- CAPÍTULO 5 ----------------
-\chapter{Mitos y Vida en la FIM}
-
-\section{Rendimiento Académico: Bikas y Trikas}
-En la UNI, desaprobar tiene consecuencias que debes evitar a toda costa:
-\begin{itemize}
-    \item \textbf{Bika (Jalar 2 veces un curso):} Te consideran alumno en riesgo académico. Recibirás tutoría obligatoria, atención psicológica y, lo peor, se limitará la cantidad de créditos/cursos que puedes llevar el siguiente ciclo, atrasándote considerablemente.
-    \item \textbf{Trika (Jalar 3 veces un curso):} Separación automática de la universidad por un año. Si al regresar vuelves a desaprobar ese mismo curso, la expulsión es permanente.
+    \item \textbf{Horario:} De 8:00 a. m. a 3:00 p. m.
+    \item \textbf{Lugar:} Centro Médico UNI.
+    \item \textbf{Requisitos:} Para poder ser atendido es indispensable presentar el voucher de pago (el costo es de S/ 82.00 aprox.).
+    \item \textbf{Recomendaciones:} Vayan bien aseados, temprano para evitar colas, lleven bloqueador y agua. Si usan brackets, el personal solo lo anotará en su registro.
+    \item \textbf{Contacto oficial:} centromedico@uni.edu.pe / (01) 481 1070 – Anexo 3001.
 \end{itemize}
 
-\section{Centros de Estudiantes y Agrupaciones}
-La facultad fomenta la investigación y el desarrollo extracurricular. Te recomendamos acercarte a los centros de estudiantes según tu especialidad:
+% ---------------- SECCIÓN 3 ----------------
+\section{Sistema de Evaluación y Rendimiento Académico}
+
+\subsection{El Ciclo de 16 Semanas}
+El ciclo universitario regular (que inicia el 23 de marzo) tiene una duración de 16 semanas. El sistema de evaluación clásico se divide de la siguiente manera:
 \begin{itemize}
-    \item \textbf{CIIM:} Ingeniería Mecánica (M3)
-    \item \textbf{CEDIME:} Ingeniería Mecánica Eléctrica (M4)
-    \item \textbf{APEIN:} Ingeniería Naval (M5)
-    \item \textbf{CEDIM:} Ingeniería Mecatrónica (M6)
-    \item \textbf{ACIA:} Asociación Cultural Isaac Asimov. Ideal si buscas clubes de música, cine, fotografía, lectura, arte o idiomas.
+    \item \textbf{Semana 8 (Exámenes Parciales):} Evalúa todo lo visto desde la semana 1 hasta la 8.
+    \item \textbf{Semana 16 (Exámenes Finales):} Evalúa todo lo visto desde la semana 8 hasta la 16.
+    \item \textbf{Semana 17 (Sustitutorios):} El famoso "susti" reemplaza la nota más baja (ya sea del parcial o del final). Ojo, evalúa \textbf{todo el curso} (semana 1 a la 16) y es de doble filo si sacas menos nota de la que ya tenías.
 \end{itemize}
 
-\section{El Mito del Carné de Comedor}
-No existe tal cosa como un "Carné de comedor". Si un alumno mayor te ofrece tramitarlo o te pide dinero para agilizarlo, te está engañando (kchimbeando).
+\subsection{Consecuencias de desaprobar (Bikas y Trikas)}
+Eviten jalar cursos a toda costa. El reglamento de la UNI es estricto:
+\begin{itemize}
+    \item \textbf{Bika (Jalar 2 veces un curso):} Pasas a ser "alumno en riesgo académico". Entras a tutoría obligatoria, recibes atención psicológica y, lo peor, se limita tu matrícula a menos de 4 cursos, lo que te atrasa al menos un año entero.
+    \item \textbf{Trika (Jalar 3 veces un curso):} "Alumno en alto riesgo". Implica separación automática de la universidad por un año. Al volver, \textbf{solo} podrás matricularte en ese curso.
+    \item \textbf{Cuarta vez:} Si al volver del baneo vuelves a desaprobar ese curso, la expulsión de la UNI es permanente.
+\end{itemize}
+
+% ---------------- SECCIÓN 4 ----------------
+\section{Clases y Estrategias de Estudio}
+
+\subsection{Clases Introductorias}
+Inician generalmente una o dos semanas antes del ciclo regular (aproximadamente el 2 de marzo). No son obligatorias ni afectan tu promedio, pero son vitales para no "volar" la primera semana.
+
+\subsection{Libros y Consejos}
+La universidad exige ser autodidacta. Aquí algunos tips de supervivencia:
+\begin{itemize}
+    \item \textbf{Bibliografía base:} Para Física usa el \textit{Serway}. Para Geometría se recomienda fuertemente el libro \textit{Vidal} (excelente para ponderar) y el \textit{Nakamura}. 
+    \item \textbf{Material FIM:} En las fotocopiadoras de la facultad venden cuadernos de cursos específicos escritos por los mismos ingenieros. Consigue el cuaderno de ese amigo que siempre asiste a clases; los profesores suelen resolver ejercicios muy parecidos a los del examen días antes de la prueba.
+    \item \textbf{Laboratorios:} Busca armar un buen grupo de laboratorio desde el día uno, te salvará la vida. Apóyate mucho en YouTube.
+\end{itemize}
+
+% ---------------- SECCIÓN 5 ----------------
+\section{Becas, Intercambios y Agrupaciones}
+
+\subsection{Beneficios y Becas}
+A partir del primer año puedes postular a beneficios como PRONABEC (Beca Continuidad o Permanencia) o la Beca Alianza para el Progreso. También existen pasantías para estudiar un periodo académico fuera del país (como intercambios a la Universidad de Chile). El TEFIM (Tercio Estudiantil) suele organizar charlas informativas sobre traslados internos e intercambios.
+
+\subsection{Centros de Estudiantes}
+Se recomienda afiliarse a los grupos de investigación de la facultad:
+\begin{itemize}
+    \item \textbf{CIIM} (Mecánica - M3) | \textbf{CEDIME} (Mecánica Eléctrica - M4) | \textbf{APEIN} (Naval - M5) | \textbf{CEDIM} (Mecatrónica - M6).
+    \item \textbf{ACIA:} Asociación Cultural Isaac Asimov (clubes de música, cine, fotografía, lectura, arte o idiomas).
+\end{itemize}
+
+% ---------------- SECCIÓN 6 ----------------
+\section{Vida Universitaria en la FIM}
+
+\subsection{Alimentación y Kioskos}
+Existe el mito del "Carné de comedor" para los cachimbos; esto es totalmente falso y es una clásica broma para engañar ingresantes. Si buscan dónde comer dentro de la facultad, diríjanse al fondo, pegado al cerro, donde están "las jarras" y los kioskos.
+
+\subsection{Eventos de Facultad}
+La vida no es solo estudio; la facultad también es conocida por sus celebraciones, entre ellas los famosos \textbf{"Mecatonazos"}. ¡Aprovechen su etapa universitaria!
 
 \end{document}
