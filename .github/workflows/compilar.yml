@@ -1,0 +1,31 @@
+name: Compilar FAQ FIM
+
+on:
+  push:
+    branches: [ main ] # Se ejecuta cada vez que actualizas la rama main
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Permiso clave para que el bot pueda publicar el PDF
+
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v3
+
+      - name: Compilar documento LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+
+      - name: Preparar carpeta pública
+        run: |
+          mkdir public
+          mv main.pdf public/
+
+      - name: Publicar PDF en GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
